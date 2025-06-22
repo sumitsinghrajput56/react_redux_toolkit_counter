@@ -5,7 +5,7 @@ import './App.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { store } from './redux/store'
 import { counterSlice } from './features/counter/counterSlice'
-import { increment,decrement } from './features/counter/counterSlice'
+import { increment,decrement,reset } from './features/counter/counterSlice'
 
 function App() {
 
@@ -21,11 +21,16 @@ function App() {
   {
     dispatch(decrement())
   }
+  function HandleResetClick()
+  {
+    dispatch(reset())
+  }
   return (
     <>
     <button onClick={HandleIncrementClick}>+</button>
     <p>Count:{count}</p>
-    <button onClick={HandleDecrementClick}>-</button>
+    <button onClick={HandleDecrementClick}>-</button><br></br>
+    <button onClick={HandleResetClick}>Reset</button>
       
     </>
   )
